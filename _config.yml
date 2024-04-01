@@ -18,21 +18,32 @@
 # You can create any custom variable you would like, and they will be accessible
 # in the templates via {{ site.myvariable }}.
 
-title: Your awesome title
-email: your-email@example.com
+title: Cloud 17
+author: 
+  name: Kingston RK
+  email: contact@cloud17.co.uk
 description: >- # this means to ignore newlines until "baseurl:"
-  Write an awesome description for your new site here. You can edit this
-  line in _config.yml. It will appear in your document head meta (for
-  Google search results) and in your feed.xml site description.
-baseurl: "" # the subpath of your site, e.g. /blog
-url: "" # the base hostname & protocol for your site, e.g. http://example.com
-twitter_username: jekyllrb
-github_username:  jekyll
+  My personal blog about cloud computing, Azure, DevOps, and the tools around them;  
+  mostly intended as notes for my own reference, but since I have learned so much 
+  over the years from similar little blogs, I thought I would share my experiences too!
+baseurl: "" # the subpath of your site, e.g. /blog - can be left blank for GitHub Pages
+url: "https://kingstonrk.github.io/" # the base hostname & protocol for your site, e.g. http://example.com
 
 # Build settings
-theme: minima
 plugins:
   - jekyll-feed
+  - jekyll-seo-tag
+  - jekyll-remote-theme
+
+# set up remote_theme
+# theme: minima
+remote_theme: kingstonrk/jekyll-minima@master
+minima:
+  skin: dark
+  date_format: "%Y-%m-%d %H:%M"
+
+header_pages:
+  - about.markdown
 
 # Exclude from processing.
 # The following items will not be processed, by default.
