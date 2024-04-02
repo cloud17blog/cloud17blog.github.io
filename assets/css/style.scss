@@ -1,0 +1,56 @@
+---
+---
+
+@import
+  "minima/skins/{{ site.minima.skin | default: 'dark' }}",
+  "minima/initialize";
+
+/** Body Override */
+body {
+    color: #dfdfdf;
+    font: 400 16px/1.5 "Lucida Grande", "Calibri", Helvetica, Arial, sans-serif;
+}
+
+/** Remove duplicated heading */
+.home h1.page-heading {
+    display: none;
+}
+
+/** Site-header Override */
+.site-header {
+    background-color: #0078d4;
+    min-height: 99.95px;
+    line-height: 100px;
+}
+
+.site-header .wrapper {
+    max-width: calc(1000px - (30px));
+    margin-right: auto;
+    margin-left: auto;
+    padding-right: 15px;
+    padding-left: 15px;
+}
+/** Site-nav Page-link Override */
+.site-nav .page-link {
+    color: #dfdfdf;
+}
+
+/** Site-Title Override */
+.site-title {
+    font-size: 3.0rem;
+    font-weight: 400;
+}
+
+.site-title,
+.site-title:visited {
+    color: #dfdfdf;
+}
+
+/** Add logo to heading */
+.site-title::before {
+    content: url("/assets/images/site/cloud17.png");
+    display: inline-block;
+    position: relative;
+    top: 15px;
+    width: 120px;
+}
