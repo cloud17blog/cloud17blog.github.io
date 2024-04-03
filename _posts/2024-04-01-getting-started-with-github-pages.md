@@ -23,7 +23,7 @@ This has the following advantages:
 
 ### So what is GitHub Pages?
 
-![GitHub Pages](../../../../../assets/images/2024-04-01-getting-started-with-github-pages--github-pages.png)
+![GitHub Pages](../../../../../assets/images/blog/2024/04/01/getting-started-with-github-pages/github-pages.png)
 
 Being very brief, it is a static site hosting service that takes web files (html, css etc) straight from a specific repository on GitHub, optionally runs the files through a build process, and publishes them as a standalone website.
 
@@ -94,17 +94,17 @@ jekyll new . --force
 
 Output and new files created:
 
-![Create Jekyll Site](../../../../../assets/images/2024-04-01-getting-started-with-github-pages--create-jekyll-site.png)
+![Create Jekyll Site](../../../../../assets/images/blog/2024/04/01/getting-started-with-github-pages/create-jekyll-site.png)
 
 ### 4. Build Site Locally and View
 
-Still within your project directory, do a test build of your site (with verbose logging to help debug any errors) and make it available on a local web server:
+Still within your project directory, do a test build of the site (with verbose logging to help debug any errors):
 
 ```bash
 bundle exec jekyll build --trace --verbose
 ```
 
-Deploy a local site via the built-in web server:
+You can then deploy the site to the built-in web server:
 
 ```bash
 bundle exec jekyll serve
@@ -113,11 +113,11 @@ bundle exec jekyll serve
 Ignore Dart Sass warnings.
 Now, you can view your site by navigating to <http://localhost:4000> in your web browser and you should see the default Jekyll site:
 
-![Jekyll Site](../../../../../assets/images/2024-04-01-getting-started-with-github-pages--jekyll-site.png)
+![Jekyll Site](../../../../../assets/images/blog/2024/04/01/getting-started-with-github-pages/jekyll-site.png)
 
 ## Customising the Site
 
-I then customised the site by quite significantly, changing aspects of the default theme, including forking the newest version of it to my own repository so I could modify it directly rather than override aspects of it, and also to ensure I don't lose the theme if it becomes no longer available in its current public GitHub repo.
+I then customised the site quite significantly, changing aspects of the default theme, including forking the newest version of it to my own repository so I could modify it directly rather than override aspects of it, and also to ensure I don't lose the theme if it becomes no longer available in its current public GitHub repo.
 
 I was then also able to switch to a dark-themed skin, and modify the layout of the pages a little before I started to add content to the site.
 
@@ -166,7 +166,7 @@ I then customised the theme by modifying the files in the ```_layouts``` and ```
 
 To this file I have added CSS to override specific CSS definitions in the base theme to change the look of the site, including the header colour and size, font styles, sizes and colours, and a few other details of the site's appearance:
 
-![Custom CSS](../../../../../assets/images/2024-04-01-getting-started-with-github-pages--custom-css.png)
+![Custom CSS](../../../../../assets/images/blog/2024/04/01/getting-started-with-github-pages/custom-css.png)
 
 Note: the CSS file is actually a SCSS file, which is an annotated version of CSS that allows for more complex styling and is compiled down to CSS by Jekyll when the site is built. The base theme is imported into this by the ```@import``` directive at the top of the file, and overridden styles are then added below.
 
@@ -180,7 +180,7 @@ I then added content, such as this page(!), to the site by creating new Markdown
 
 Once I was happy with the appearance of the site, and had written up creating it via this current markdown file, I pushed the changes back to the GitHub repository, waited a couple of seconds for the automated publishing process to complete:
 
-![GitHub Pages Publishing](../../../../../assets/images/2024-04-01-getting-started-with-github-pages--github-pages-deployment.png)
+![GitHub Pages Publishing](../../../../../assets/images/blog/2024/04/01/getting-started-with-github-pages/github-pages-deployment.png)
 
 ... and was then able to view the live site at <https://cloud17blog.github.io/>.
 
