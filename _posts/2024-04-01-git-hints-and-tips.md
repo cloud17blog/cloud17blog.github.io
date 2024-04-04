@@ -60,7 +60,6 @@ git config user.name
 git config user.email
 ```
 
-
 Alternatively, "download" a remote repository to your local machine:
 
 ```bash
@@ -112,6 +111,25 @@ Otherwise a simple push is fine:
 ```bash
 # Push changes to the remote repository:
 git push
+```
+
+## Renaming a Commit:
+
+If you need to rename a commit message, you can do so with the following command:
+
+```bash
+git commit --amend -m "New commit message"
+```
+
+If you had already pushed the commit to the remote repository, you will need to force push the changes:
+
+```bash
+# Push the renamed commit and potentially overwrite yours or other users' 
+# changes in the remote branch:
+git push --force
+
+# Push the renamed commit unless there are remote changes to merge locally first:
+git push --force-with-lease
 ```
 
 ## Reverting Changes
@@ -166,3 +184,104 @@ Note you cannot be in the branch when you delete it, so may need to switch to an
 git checkout main
 ```
 
+## Merging and Rebasing
+
+### Option 1 - Using ```git merge```
+
+This merges all the commits from the source branch into the target branch, keeping the commit history and chronological record of the changes made in both branches:
+
+```bash
+# Switch to the branch you want to merge changes into, e.g. main branch:
+git checkout target-branch
+
+# Merge changes from another branch into the current branch:
+git merge source-branch
+```
+
+### Option 2 - Using ```git rebase```
+
+Git rebase is an alternative to git merge, and is used to reapply commits from one branch onto another branch. This can be useful if you want to keep a linear commit history, rather than a branching one.
+
+However this method of rewriting history can cause problems if the branch is shared with others, as it changes the commit history and introduces the potential for conflicts during the rebase process, which need to be resolved.
+
+```bash
+# Switch to the branch you want to rebase changes into, e.g. main branch:
+git checkout target-branch
+
+# Rebase changes from another branch into the current branch:
+git rebase source-branch
+```
+
+To make the rebase process easier, you can use the ```--interactive``` flag to *squash* commits together, or reorder them:
+
+```bash
+# Rebase changes from another branch into the current branch, interactively:
+git rebase --interactive source-branch
+```
+
+### Example of interactive rebase
+
+Say we have three commits in ```branch2``` that we want to rebase onto ```branch1```. We can view the recent changes using the ```git log``` command:
+
+```bash
+# List the recent commits that are to be rebased:
+git log --oneline
+
+772984e (HEAD -> branch2) Change 3
+a7ae81e Change 2
+31c8a41 Change 1
+a7173ba (main, branch1) Added Git Hints and Tips page initial version
+```
+
+We can then squash the last three commits into one, by running the following command:
+
+```bash
+# Rebase last 3 commits interactively (by viewing the last 4 commits):
+git rebase --interactive HEAD~4
+```
+
+This will open a text editor with the last 3 commits listed, and you can change the word "pick" to "squash" for the commits you want to squash together:
+
+```bash
+pick a7173ba Added Git Hints and Tips page initial version
+pick 31c8a41 Change To Keep
+pick a7ae81e Change 2
+pick 772984e Change 3
+
+Rebase bc63f33..772984e onto bc63f33 (4 commands)
+```
+
+Becomes:
+
+```bash
+pick a7173ba Added Git Hints and Tips page initial version
+pick 31c8a41 Change To Keep
+squash a7ae81e Change 2
+squash 772984e Change 3
+
+Rebase bc63f33..772984e onto bc63f33 (4 commands)
+```
+
+Save and close the editor, and the rebase will be performed.
+
+You will also be prompted to enter a new commit message for the squashed commits:
+
+```bash
+# This is a combination of 3 commits.
+# This is the 1st commit message:
+
+Change To Keep
+
+# This is the commit message #2:
+
+Change 2
+
+# This is the commit message #3:
+
+Change 3
+
+# Please enter the commit message for your changes. Lines starting
+# with '#' will be ignored, and an empty message aborts the commit.
+```
+
+Enter a new commit message for the first commit (i.e. the one representing the new merge) and remove any now superfluous messages. Save and close the editor, and the rebase will be completed.
