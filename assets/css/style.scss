@@ -11,16 +11,6 @@ body {
     font: 400 16px/1.5 "Lucida Grande", "Calibri", Helvetica, Arial, sans-serif;
 }
 
-/** Remove duplicated heading */
-.home h1.page-heading {
-    display: none;
-}
-
-/** Remove duplicated heading */
-.post-header h1.post-title {
-    display: none;
-}
-
 /** Site-header Override */
 .site-header {
     background-color: #0078d4;
@@ -58,4 +48,12 @@ body {
     position: relative;
     top: 15px;
     width: 120px;
+}
+
+/** Add image to banner to heading */
+.banner {
+    content: url("/assets/images/site/cloud17-banner.png");
+    display: inline-block;
+    position: relative;
+    width: 800px;
 }
