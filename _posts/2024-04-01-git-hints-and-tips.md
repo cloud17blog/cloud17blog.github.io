@@ -113,7 +113,7 @@ Otherwise a simple push is fine:
 git push
 ```
 
-## Renaming a Commit:
+## Renaming a Commit Message
 
 If you need to rename a commit message, you can do so with the following command:
 
@@ -212,16 +212,18 @@ git checkout target-branch
 git rebase source-branch
 ```
 
-To make the rebase process easier, you can use the ```--interactive``` flag to *squash* commits together, or reorder them:
+To make the rebase process easier, you can use the ```--interactive``` flag to *squash* multiple commits together, or reorder them:
 
 ```bash
 # Rebase changes from another branch into the current branch, interactively:
 git rebase --interactive source-branch
 ```
 
-### Example of interactive rebase
+### Example of Interactive Rebase
 
-Say we have three commits in ```branch2``` that we want to rebase onto ```branch1```. We can view the recent changes using the ```git log``` command:
+Say we have three commits in ```branch2``` that we want to rebase onto ```branch1``` as a single commit. 
+
+We can view the recent changes using the ```git log``` command:
 
 ```bash
 # List the recent commits that are to be rebased:
@@ -240,7 +242,7 @@ We can then squash the last three commits into one, by running the following com
 git rebase --interactive HEAD~4
 ```
 
-This will open a text editor with the last 3 commits listed, and you can change the word "pick" to "squash" for the commits you want to squash together:
+This will open a text editor with the last 4 commits listed, *oldest to newest*, and you can change the word "pick" to "squash" for the commits you want to squash together into their preceding commit:
 
 ```bash
 pick a7173ba Added Git Hints and Tips page initial version
@@ -284,4 +286,6 @@ Change 3
 # with '#' will be ignored, and an empty message aborts the commit.
 ```
 
-Enter a new commit message for the first commit (i.e. the one representing the new merge) and remove any now superfluous messages. Save and close the editor, and the rebase will be completed.
+If required, edit the commit message for the first commit (i.e. the one representing the new merge) and remove any now superfluous messages. 
+
+Save and close the editor, and the rebase will be completed with the three commits from ```branch2``` merged as a new commit into ```branch1```.
