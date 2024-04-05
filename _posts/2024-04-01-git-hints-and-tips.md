@@ -113,7 +113,34 @@ Otherwise a simple push is fine:
 git push
 ```
 
-## Renaming a Commit Message
+## Branching
+
+Create a new branch and switch to it in one command:
+
+```bash
+git checkout -b new-branch-name
+```
+
+Delete a branch locally (and, optionally, remotely):
+
+```bash
+# Delete locally
+git branch -d branch-name
+
+# Delete remotely
+git push origin --delete branch-name
+```
+
+Note you cannot be in the branch when you delete it, so may need to switch to another branch first:
+
+```bash
+# Switch to "main"" branch
+git checkout main
+```
+
+## Fixing Mistakes
+
+### Changing a Commit Message
 
 If you need to rename a commit message, you can do so with the following command:
 
@@ -121,18 +148,19 @@ If you need to rename a commit message, you can do so with the following command
 git commit --amend -m "New commit message"
 ```
 
-If you had already pushed the commit to the remote repository, you will need to force push the changes:
+### Adding a Missing File to a Commit
+
+If you forgot to add a file to the staging area before committing, you can add it and then amend the commit:
 
 ```bash
-# Push the renamed commit and potentially overwrite yours or other users' 
-# changes in the remote branch:
-git push --force
+# Add the missing file to the staging area:
+git add filename
 
-# Push the renamed commit unless there are remote changes to merge locally first:
-git push --force-with-lease
+# Amend the last commit with the new file:
+git commit --amend
 ```
 
-## Reverting Changes
+### Reverting Changes
 
 If you've made a mistake, you can revert changes in a number of ways:
 
@@ -159,29 +187,43 @@ git reset HEAD~n --mixed
 git reset HEAD~n --hard
 ```
 
-## Branching
+### Committed to the Wrong Branch
 
-Create a new branch and switch to it in one command:
+If you've committed to the wrong branch (e.g. main/master), you can "move" the commit to the correct branch by creating the intended new branch and resetting the original back to its prior commit state:
 
 ```bash
-git checkout -b new-branch-name
+# Create a new branch from the current branch, but stay in the original branch:
+git branch new-branch-name
+
+# Reset the original branch back to the commit before (HEAD~1 means one commit back):
+git reset HEAD~1 --hard
+
+# Switch to the new branch, which still contains the commit:
+git checkout new-branch-name
 ```
 
-Delete a branch locally (and, optionally, remotely):
+### Renaming a Branch
+
+If you need to rename a branch, you can do so with the following command:
 
 ```bash
-# Delete locally
-git branch -d branch-name
-
-# Delete remotely
-git push origin --delete branch-name
+# Rename the current branch by moving it to a new name:
+git branch -m new-branch-name
 ```
 
-Note you cannot be in the branch when you delete it, so may need to switch to another branch first:
+Easy!
+
+### Pushing Changes to the Remote Repository
+
+If you had already pushed the commit that you are fixing to the remote repository, you will need to "force push" the new changes:
 
 ```bash
-# Switch to "main"" branch
-git checkout main
+# Push the renamed commit and potentially overwrite yours or other users' 
+# changes in the remote branch:
+git push --force
+
+# Push the renamed commit unless there are remote changes to merge locally first:
+git push --force-with-lease
 ```
 
 ## Merging and Rebasing

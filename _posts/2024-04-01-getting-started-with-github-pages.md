@@ -35,7 +35,7 @@ You can see more at https://pages.github.com/.
 
 ## Getting Started
 
-To set up a default PAges site, you just need to perform the following steps:
+To set up a default Pages site, you just need to perform the following steps:
 
 - Create a new repository on GitHub
 - Name it username.github.io, where username is your GitHub username
@@ -44,11 +44,13 @@ To set up a default PAges site, you just need to perform the following steps:
 - Push the changes to GitHub
 - Visit https://username.github.io in your browser to view the basic content
 
+Note: See the post [GitHub Hints and Tips](./2024-04-01-git-hints-and-tips.md) for help getting started with Git.
+
 I decided I wanted to make a slightly more complex blog-format site, so I chose to use Jekyll to generate the content, and I used the steps below to set up my site.
 
 ### 1. Create New GitHub Account and Repository
 
-Created a new GitHub account purely to host the blog content, and added a repository with the slightly odd-looking name cloud17blog.github.io
+I decided to create a new GitHub account purely to host the blog content, to which I added a repository with the slightly odd-looking name ```cloud17blog.github.io```.
 
 ### 2. Clone Repository to Local Machine
 
@@ -60,7 +62,7 @@ git clone git@github.com:cloud17blog/cloud17blog.github.io.git
 
 ### 3. Install Jekyll
 
-I installed Jekyll on my local machine (Linux Ubuntu 2022 on WSL), mainly following the instructions at <https://jekyllrb.com/docs/installation/>
+I then installed Jekyll on my local machine (Linux Ubuntu 2022 on WSL), mainly following the instructions at <https://jekyllrb.com/docs/installation/>
 
 1. Install Ruby and RubyGems
 
@@ -85,7 +87,7 @@ jekyll --version
 jekyll 4.3.3
 ```
 
-3. Create a new Jekyll site in the repository directory, using ```--force``` option to ignore existing files:
+3. Once I'd got this done correctly, I created a new Jekyll site in the repository directory, using ```--force``` option to ignore existing files:
 
 ```bash
 cd cloud17blog.github.io
@@ -98,7 +100,7 @@ Output and new files created:
 
 ### 4. Build Site Locally and View
 
-Still within your project directory, do a test build of the site (with verbose logging to help debug any errors):
+I was then able to do a test build of the site (with verbose logging to help debug any errors) by running the following command in the project directory:
 
 ```bash
 bundle exec jekyll build --trace --verbose
@@ -187,3 +189,18 @@ Once I was happy with the appearance of the site, and had written up creating it
 ## Conclusion
 
 I'm quite pleased with the setup and the ease of use of GitHub Pages and Jekyll (it took about two evenings to get this far from knowing nothing about either tool), and I'm looking forward to adding more content as time allows!
+
+## To Do
+
+Aside from adding more content and refining some of the page layouts, I have a few things I'd like to do in the future:
+
+- Add a custom domain name
+- Add Tags to posts for easier searching (no built-in support for this in the Minima theme, but there are [methods to add it](https://longqian.me/2017/02/09/github-jekyll-tag/))
+- Add richer image content
+
+## Useful Links
+
+- [GitHub Pages](https://pages.github.com/)
+- [Jekyll](https://jekyllrb.com/)
+- [Configuring Jekyll in your GitHub Pages site](https://docs.github.com/en/pages/setting-up-a-github-pages-site-with-jekyll/about-github-pages-and-jekyll)
+- [Jekyll Minima Theme](https://github.com/jekyll/minima)
