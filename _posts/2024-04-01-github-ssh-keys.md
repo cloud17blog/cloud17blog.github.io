@@ -5,8 +5,6 @@ date:   2024-04-01 19:47:23 +0100
 categories: blog
 ---
 
-# Using SSH Keys with GitHub
-
 ## Introduction
 
 SSH keys are a secure way to authenticate with GitHub, and they are recommended over using passwords.

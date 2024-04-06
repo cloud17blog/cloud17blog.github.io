@@ -5,8 +5,6 @@ date:   2024-04-01 18:55:34 +0100
 categories: blog
 ---
 
-# Getting Started with GitHub Pages
-
 ## Background
 
 When I decided that I wanted to start publicly sharing several years' worth of notes and reminders that I've had stored away in OneNote, I looked at a couple of hosting options. 
@@ -31,7 +29,7 @@ Each GiHub repository can have one accompanying Pages site, and you can have a u
 
 Jekyll can be used to generate the site content, and there are a number of themes available to use.
 
-You can see more at https://pages.github.com/.
+You can see more at <https://pages.github.com/>.
 
 ## Getting Started
 

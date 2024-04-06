@@ -57,3 +57,28 @@ body {
     position: relative;
     width: 800px;
 }
+
+/** Profile Picture Style*/
+.wrapper-about {
+    /* This ensures that the wrapper contains its floated children */
+    overflow: auto;
+}
+
+.profile-pic {
+    /* Float the image container to the right */
+    float: right;
+    width: 150px; /* Set a width for the image container */
+    height: 150px; /* Set a height for the image container */
+    background-image: url('/assets/images/site/profile-pic.jpg'); /* Adjust the path as necessary */
+    background-size: cover; /* Cover the entire area of the div */
+    background-position: center; /* Center the background image */
+    margin-left: 20px; /* Add some space between the image and the text */
+    margin-top: 50px; /* Add some space to align it with the text heading */
+}
+
+/* Clearfix solution for .wrapper-about to ensure it contains its floated children properly */
+.wrapper-about::after {
+    content: "";
+    display: table;
+    clear: both;
+}

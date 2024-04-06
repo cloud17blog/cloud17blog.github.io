@@ -5,8 +5,6 @@ date:   2024-04-01 20:37:53 +0100
 categories: blog
 ---
 
-## Git Hints and Tips
-
 ![Git Logo](../../../../../assets/images/blog/2024/04/01/git-hints-and-tips/git-banner.png)
 
 ## Introduction
