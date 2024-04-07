@@ -24,16 +24,18 @@ body {
 }
 
 /** Site-Title Override */
+/** Set defaults to be compatible with mobile devices */
 .site-title {
     font-size: 2.0rem;
     font-weight: 400;
 }
+
+/** Adjust font size for larger screens */
 @media screen and (min-width: 768px) {
     .site-title {
         font-size: 3.0rem;
     }
 }
-
 
 .site-title,
 .site-title:visited {
