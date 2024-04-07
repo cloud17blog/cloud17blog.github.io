@@ -57,6 +57,10 @@ body {
     display: inline-block;
     position: relative;
     width: 800px;
+
+    @media (max-width: 768px) {
+        width: 100%; // Set the width to 100% for mobile devices
+    }
 }
 
 /** Post-List Override - remove from base template */
