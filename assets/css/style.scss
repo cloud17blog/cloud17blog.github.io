@@ -19,11 +19,11 @@ body {
 }
 
 .site-header .wrapper {
-    max-width: calc(1000px - (30px));
+    max-width: calc(800px - (30px));
     margin-right: auto;
     margin-left: auto;
     padding-right: 15px;
-    padding-left: 15px;
+    padding-left: 0px;
 }
 /** Site-nav Page-link Override */
 .site-nav .page-link {
@@ -39,26 +39,42 @@ body {
 .site-title,
 .site-title:visited {
     color: #dfdfdf;
+    text-decoration: none !important;
 }
 
 /** Add logo to heading */
 .site-title::before {
-    content: url("/assets/images/site/cloud17.png");
+    content: url("/assets/images/site/cloud17-header-grad.png");
     display: inline-block;
     position: relative;
-    top: 15px;
+    top: 5px;
     width: 120px;
 }
 
 /** Add image to banner to heading */
 .banner {
-    content: url("/assets/images/site/cloud17-banner.jpg");
+    content: url("/assets/images/site/cloud17-banner.png");
     display: inline-block;
     position: relative;
     width: 800px;
 }
 
-/** Profile Picture Style*/
+/** Post-List Override - remove from base template */
+.post-list > li {
+    margin-bottom: 0px;
+}
+
+/** List item with image bullet */
+a.post-link::before {
+    content: url("/assets/images/site/cloud17-bullet.png");
+    padding-right: 5px;
+}
+
+.wrapper .home {
+    margin-top: 40px;
+}
+
+/**** About Page - Profile Picture Style ****/
 .wrapper-about {
     /* This ensures that the wrapper contains its floated children */
     overflow: auto;
