@@ -56,10 +56,13 @@ body {
     content: url("/assets/images/site/cloud17-banner.png");
     display: inline-block;
     position: relative;
-    width: 800px;
+    width: 100%; /* Set initial width to 100% */
+}
 
-    @media (max-width: 768px) {
-        width: 100%; // Set the width to 100% for mobile devices
+/* Add a max-width for larger screens to prevent the image from stretching too much */
+@media screen and (min-width: 768px) {
+    .banner {
+        max-width: 800px; /* Adjust max-width as needed */
     }
 }
 
