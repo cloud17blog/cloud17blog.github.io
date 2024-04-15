@@ -22,6 +22,7 @@ title: Cloud 17
 author: 
   name: Richard Kingston
   email: blog@cloud17.co.uk
+  github: github.com/cloud17dev
 description: >- # this means to ignore newlines until "baseurl:"
   My personal blog about cloud computing, Azure, DevOps, and the tools around them;  
   mostly intended as notes for my own reference, but since I have learned so much 
@@ -29,6 +30,10 @@ description: >- # this means to ignore newlines until "baseurl:"
   for others to benefit from too!
 baseurl: "" # the subpath of your site, e.g. /blog - can be left blank for GitHub Pages
 url: "https://cloud17dev.github.io/" # the base hostname & protocol for your site, e.g. http://example.com
+
+# Social Links
+social_links:
+  - { platform: github, user_url: "https://cloud17dev.github.io/" }
 
 # Build settings
 plugins:
