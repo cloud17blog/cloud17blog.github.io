@@ -2,7 +2,7 @@
 layout: post
 title:  "Git Hints and Tips"
 date:   2024-04-01 20:37:53 +0100
-categories: blog
+categories: blog hints-and-tips
 ---
 
 ![Git Logo](../../../../../assets/images/blog/2024/04/01/git-hints-and-tips/git-banner.png)
@@ -261,7 +261,7 @@ git rebase --interactive source-branch
 
 ### Example of Interactive Rebase
 
-Say we have three commits in ```branch2``` that we want to rebase onto ```branch1``` as a single commit. 
+Say we have three commits in ```branch2``` that we want to rebase onto ```branch1``` as a single commit.
 
 We can view the recent changes using the ```git log``` command:
 
@@ -326,6 +326,6 @@ Change 3
 # with '#' will be ignored, and an empty message aborts the commit.
 ```
 
-If required, edit the commit message for the first commit (i.e. the one representing the new merge) and remove any now superfluous messages. 
+If required, edit the commit message for the first commit (i.e. the one representing the new merge) and remove any now superfluous messages.
 
 Save and close the editor, and the rebase will be completed with the three commits from ```branch2``` merged as a new commit into ```branch1```.

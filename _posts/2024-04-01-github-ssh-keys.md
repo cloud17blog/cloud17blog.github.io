@@ -2,7 +2,7 @@
 layout: post
 title:  "Using SSH Keys with GitHub"
 date:   2024-04-01 19:47:23 +0100
-categories: blog
+categories: blog hints-and-tips
 ---
 
 ## Introduction
@@ -40,6 +40,7 @@ Add the key to your local keystore:
 ```bash
 ssh-add ~/.ssh/id_rsa
 ```
+
 If you receive the error: ```Permissions 0755 for '/root/.ssh/id_rsa.pub' are too open```, then you simply need to use ```chmod``` to change the permissions:
 
 ```bash

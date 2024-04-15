@@ -2,7 +2,7 @@
 layout: post
 title:  "Getting Started with GitHub Pages"
 date:   2024-04-01 18:55:34 +0100
-categories: blog
+categories: blog article
 ---
 
 ## Background

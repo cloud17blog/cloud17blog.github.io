@@ -68,6 +68,11 @@ body {
 }
 
 /** Post-List Override - remove from base template */
+/** Add extra space below each block */
+.post-list {
+    margin-bottom: 50px;
+}
+
 .post-list > li {
     margin-bottom: 0px;
 }
@@ -81,6 +86,40 @@ a.post-link::before {
 .wrapper .home {
     margin-top: 40px;
 }
+
+/** Text Box Style - Not this uses kramdown syntax, which is supported by Ruby */
+.text-box {
+    background-color: #194364;;
+    padding: 15px;
+}
+
+.fit-content-auto {
+    width: fit-content;
+    margin: auto;
+}
+
+.text-box-container {
+    display: flex;
+    align-items: center; /* This will vertically center the items */
+    justify-content: space-between; /* This will put maximum space between the items */
+}
+
+.text-box-item {
+    flex: 1; /* This will allow the text to take up the remaining space */
+    text-align: center; /* This will center the text horizontally */
+}
+
+/** Table of Contents Style */
+.toc, .toc ul {
+    list-style-type: disc; /* This forces all levels to use the same bullet style */
+    margin-left: 20px; /* Adjust as needed for your design */
+    padding-left: 0; /* Removes the default padding */
+}
+
+.toc ul {
+    list-style-position: outside; /* Ensures bullets are aligned outside the list items */
+}
+
 
 /**** About Page - Profile Picture Style ****/
 .wrapper-about {
