@@ -327,7 +327,7 @@ To repeat a command from the history, you can use the `!` operator followed by t
 
 ### Searching Command History
 
-To search for a specific command in the history, you can use the `Ctrl+R` shortcut from the terminal 
+To search for a specific command in the history, you can use the `Ctrl+R` shortcut from the terminal
 prompt, and then start typing the command you are looking for.
 
 However, an easier way to search for a specific command in the history is to use the `history | grep` command:
@@ -358,8 +358,159 @@ source ~/.bashrc
 
 Or you can restart your terminal session.
 
+## Script Control
+
+### Running Scripts
+
+To run a script in Bash, you can use the `./` operator followed by the script name:
+
+```bash
+# Run a script
+./script.sh
+```
+
+For scripts that you intend to run frequently, it is a good idea to:
+
+- Save them without the `.sh` extension so you don't have to type it every time
+- Place them in a directory that is in your `PATH` environment variable, such as
+`/usr/bin`, `/usr/local/bin` or `~/bin`
+- Make them executable by using the `chmod` command:
+
+```bash
+# Make a script executable
+chmod +x script.sh
+```
+
+### Declaring an Alias
+
+To create an alias for a command or script, you can use the `alias` command:
+
+```bash
+# Create an alias for a command
+alias ll='ls -la'
+
+# Create an alias for a script
+alias myscript='~/path/to/script.sh'
+
+# Pass parameters to an alias
+alias myscript='~/path/to/script.sh $1 $2'
+
+# Run an alias and pass parameters to it:
+myscript arg1 arg2
+```
+
+Aliases are only available for the current session, so to make them permanent, you can add them to your `~/.bashrc` file:
+
+```bash
+# Add an alias to the ~/.bashrc file
+echo "alias ll='ls -la'" >> ~/.bashrc
+
+# Apply the changes to the current session
+source ~/.bashrc
+```
+
+### Remove an alias
+
+```bash
+unalias ll
+```
+
+### Changing Directory in a Script
+
+To change the directory in a script, you can use the `cd` command:
+
+```bash
+!#/bin/bash
+
+# Change the directory in a script
+cd /path/to/directory
+
+# Do something in the new directory
+ls
+```
+
+However, this path change only applies to the script itself and not the terminal
+session that runs the script.
+
+If you wish to use a script to change the directory in the terminal session, you
+can use the `.` operator when executing it:
+
+```bash
+# Run a script to change the directory in the terminal session
+. script.sh
+```
+
+However for this particular task, it is probably better to use an alias as described above.
+
+### Switching Between Two Directories from the Command Line
+
+To switch between two directories from the command line, you can use the `cd -` command:
+
+```bash
+# Switch between two directories
+
+# Change to directory1
+cd /path/to/directory1
+
+# Change to directory2
+cd /path/to/directory2
+
+# Switch back to directory1
+cd -
+```
+
+### Running Scripts in the Background
+
+To run a script in the background, you can use the `&` operator:
+
+```bash
+# Run a script in the background
+./script.sh &
+
+# Stop a script that is running in the background
+kill PID
+```
+
+You can also send an existing process to the background by pressing **Ctrl+Z** to pause the
+process, then typing **bg** to send it to the background.
+{:.text-box}
+
+### Running Scripts with Arguments
+
+To run a script with arguments, you can pass the arguments after the script name and read them in the script by position number:
+
+```bash
+# Run a script with arguments
+./script.sh arg1 arg2
+
+# Read the arguments in the script file:
+
+!#/bin/bash
+arg1=$1
+arg2=$2
+
+echo "Argument 1: $arg1"
+echo "Argument 2: $arg2"
+
+```
+
+### Verbose Script Output
+
+To output verbose information from a script, you can use the `set -x` command at the start of the script:
+
+```bash
+# Output verbose information from a script
+set -x
+
+# Do something in the script
+...
+```
+
+When this script runs, it will output each command that is executed, which can be useful for debugging.
+
 ## To Do
 
+- Add ~/.bashrc commands to show git branch in terminal
 - Add more commands and examples
 - Add example output for each command
 

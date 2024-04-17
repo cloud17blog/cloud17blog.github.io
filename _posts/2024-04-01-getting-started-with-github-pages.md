@@ -40,7 +40,7 @@ To set up a default Pages site, you just need to perform the following steps:
 - Clone the repository to your local machine
 - Create an index.html file in the repository
 - Push the changes to GitHub
-- Visit https://username.github.io in your browser to view the basic content
+- Visit <https://username.github.io> in your browser to view the basic content
 
 Note: See the post [GitHub Hints and Tips](./2024-04-01-git-hints-and-tips.md) for help getting started with Git.
 
