@@ -366,7 +366,7 @@ To run a script in Bash, you can use the `./` operator followed by the script na
 
 ```bash
 # Run a script
-./script.sh
+./myscript.sh
 ```
 
 For scripts that you intend to run frequently, it is a good idea to:
@@ -378,7 +378,14 @@ For scripts that you intend to run frequently, it is a good idea to:
 
 ```bash
 # Make a script executable
-chmod +x script.sh
+chmod +x myscript.sh
+```
+
+You can then run this script as if it were a built-in command:
+
+```bash
+# Run a script as a command
+myscript
 ```
 
 ### Declaring an Alias
@@ -390,10 +397,10 @@ To create an alias for a command or script, you can use the `alias` command:
 alias ll='ls -la'
 
 # Create an alias for a script
-alias myscript='~/path/to/script.sh'
+alias myscript='~/path/to/some-script.sh'
 
 # Pass parameters to an alias
-alias myscript='~/path/to/script.sh $1 $2'
+alias myscript='~/path/to/some-script.sh $1 $2'
 
 # Run an alias and pass parameters to it:
 myscript arg1 arg2
@@ -437,7 +444,7 @@ can use the `.` operator when executing it:
 
 ```bash
 # Run a script to change the directory in the terminal session
-. script.sh
+. myscript.sh
 ```
 
 However for this particular task, it is probably better to use an alias as described above.
@@ -465,7 +472,7 @@ To run a script in the background, you can use the `&` operator:
 
 ```bash
 # Run a script in the background
-./script.sh &
+./myscript.sh &
 
 # Stop a script that is running in the background
 kill PID
@@ -481,7 +488,7 @@ To run a script with arguments, you can pass the arguments after the script name
 
 ```bash
 # Run a script with arguments
-./script.sh arg1 arg2
+./myscript.sh arg1 arg2
 
 # Read the arguments in the script file:
 
