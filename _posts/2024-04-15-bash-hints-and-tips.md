@@ -2,8 +2,48 @@
 layout: post
 title:  "Bash Command Hints and Tips"
 date:   2024-04-15 20:32:21 +0100
+modified_date: 2024-04-15 20:32:21 +0100
 categories: blog hints-and-tips
 ---
+
+## Contents
+
+- [Introduction](#introduction)
+- [File Handling](#file-handling)
+  - [Listing Files](#listing-files)
+  - [Viewing the Contents of a File](#viewing-the-contents-of-a-file)
+  - [Find Files](#find-files)
+  - [Find Files and Execute Commands On Them](#find-files-and-execute-commands-on-them)
+  - [Searching for Text in Files](#searching-for-text-in-files)
+  - [View File Information](#view-file-information)
+  - [Extracting Archive Files](#extracting-archive-files)
+  - [Creating New Files](#creating-new-files)
+  - [Creating New Files from Command Output](#creating-new-files-from-command-output)
+  - [Copying Files](#copying-files)
+  - [Moving and Renaming Files](#moving-and-renaming-files)
+  - [Deleting Files](#deleting-files)
+- [Network Commands](#network-commands)
+  - [Checking Network Connectivity](#checking-network-connectivity)
+  - [Checking Network Ports](#checking-network-ports)
+  - [Checking routes to a host](#checking-routes-to-a-host)
+  - [Look up DNS information](#look-up-dns-information)
+- [Command History](#command-history)
+  - [Viewing Command History](#viewing-command-history)
+  - [Repeating Commands](#repeating-commands)
+  - [Searching Command History](#searching-command-history)
+  - [Setting Command History Size](#setting-command-history-size)
+- [Script Control](#script-control)
+  - [Running Scripts](#running-scripts)
+  - [Declaring an Alias](#declaring-an-alias)
+  - [View Existing Alias Definitions](#view-existing-alias-definitions)
+  - [Remove an alias](#remove-an-alias)
+  - [Changing Directory in a Script](#changing-directory-in-a-script)
+  - [Switching Between Two Directories from the Command Line](#switching-between-two-directories-from-the-command-line)
+  - [Running Scripts in the Background](#running-scripts-in-the-background)
+  - [Running Scripts with Arguments](#running-scripts-with-arguments)
+  - [Verbose Script Output](#verbose-script-output)
+
+
 
 ## Introduction
 
@@ -134,6 +174,21 @@ grep -i "text" filename.txt
 
 # Search for text in multiple files matching a specific filename pattern
 grep "text" path/to/files/*.txt
+
+# Display lines After the matched line
+grep -A 5 "text" filename.txt
+
+# Display lines Before the matched line
+grep -B 5 "text" filename.txt
+
+# Display lines before and after the matched line
+grep -C 5 "text" filename.txt
+
+# Display only the matched text
+grep -o "text" filename.txt
+
+# Display only lines not matching the text
+grep -v "text" filename.txt
 ```
 
 ### View File Information
@@ -285,7 +340,7 @@ To check the route to a host, you can use the `traceroute` command.
 traceroute hostname.com
 ```
 
-### Look up DNS information
+### Looking up DNS information
 
 To look up DNS information for a host, you can use the `nslookup` or the `dig` commands.
 
@@ -414,6 +469,15 @@ echo "alias ll='ls -la'" >> ~/.bashrc
 
 # Apply the changes to the current session
 source ~/.bashrc
+```
+
+### View Existing Alias Definitions
+
+To view a list of existing aliases, you can simply use the `alias` command without any further parameters:
+
+```bash
+# View a list of existing aliases
+alias
 ```
 
 ### Remove an alias

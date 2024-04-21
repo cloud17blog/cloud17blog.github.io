@@ -7,6 +7,24 @@ categories: blog hints-and-tips
 
 ![Git Logo](../../../../../assets/images/blog/2024/04/01/git-hints-and-tips/git-banner.png)
 
+## Contents
+
+- [Introduction](#introduction)
+- [Absolute Basics](#absolute-basics)
+- [Basic Commands and Workflow](#basic-commands-and-workflow)
+- [Branching](#branching)
+- [Fixing Mistakes](#fixing-mistakes)
+  - [Changing a Commit Message](#changing-a-commit-message)
+  - [Adding a Missing File to a Commit](#adding-a-missing-file-to-a-commit)
+  - [Reverting Changes](#reverting-changes)
+  - [Committed to the Wrong Branch](#committed-to-the-wrong-branch)
+  - [Renaming a Branch](#renaming-a-branch)
+  - [Pushing Changes to the Remote Repository](#pushing-changes-to-the-remote-repository)
+- [Merging and Rebasing](#merging-and-rebasing)
+  - [Option 1 - Using ```git merge```](#option-1---using-git-merge)
+  - [Option 2 - Using ```git rebase```](#option-2---using-git-rebase)
+  - [Example of Interactive Rebase](#example-of-interactive-rebase)
+
 ## Introduction
 
 Git has become a crucial tool for most developers to have at least basic familiarity with, and it's relatively easy to pick up the basics. However, there are a number of more advanced features I've learned over time, so I've listed many of them here for reference.
@@ -163,6 +181,9 @@ git commit --amend
 If you've made a mistake, you can revert changes in a number of ways:
 
 ```bash
+# Unstage a file that was added to the staging area:
+git reset <file>
+
 # Restore a work file from the staged version of it (which will be last committed file if no new commits done):
 git restore <file>
 
