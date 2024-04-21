@@ -77,6 +77,17 @@ body {
     margin-bottom: 0px;
 }
 
+.post-meta time {
+    display: inline-block;
+    margin-left: 5px;
+}
+
+.post-meta label {
+    display: inline-block;
+    width: 90px;
+}
+
+
 /** List item with image bullet */
 a.post-link::before {
     content: url("/assets/images/site/cloud17-bullet.png");
