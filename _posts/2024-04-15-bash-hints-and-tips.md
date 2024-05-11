@@ -12,8 +12,12 @@ categories: blog hints-and-tips
 - [String Expansions](#string-expansions)
   - [Substrings](#substrings)
   - [String Substitution](#string-substitution)
+  - [Case Conversion](#case-conversion)
   - [String Length](#string-length)
   - [Variable Expansion](#variable-expansion)
+  - [Checking for null or empty strings](#checking-for-null-or-empty-strings)
+  - [Checking for non-null or non-empty strings](#checking-for-non-null-or-non-empty-strings)
+  - [Default values](#default-values)
   - [Read into a string variable from a file](#read-into-a-string-variable-from-a-file)
   - [Read into a string variable from a command](#read-into-a-string-variable-from-a-command)
 - [Command History](#command-history)
@@ -30,9 +34,6 @@ categories: blog hints-and-tips
   - [Switching Between Two Directories from the Command Line](#switching-between-two-directories-from-the-command-line)
   - [Running Scripts in the Background](#running-scripts-in-the-background)
   - [Running Scripts with Arguments](#running-scripts-with-arguments)
-  - [Checking for null or empty strings](#checking-for-null-or-empty-strings)
-  - [Checking for non-null or non-empty strings](#checking-for-non-null-or-non-empty-strings)
-  - [Default values](#default-values)
   - [Verbose Script Output](#verbose-script-output)
 - [Network Commands](#network-commands)
   - [Checking Network Connectivity](#checking-network-connectivity)
@@ -92,6 +93,27 @@ echo "New String: $newstring"
 > New String: Hello, Universe!
 ```
 
+### Case Conversion
+
+To convert a string to uppercase or lowercase, you can use the `${string^^}` or `${string,,}` syntax:
+
+```bash
+
+string="Hello, World!"
+
+# Convert a string to uppercase
+uppercase=${string^^}
+
+echo "Uppercase: $uppercase"
+> Uppercase: HELLO, WORLD!
+
+# Convert a string to lowercase
+lowercase=${string,,}
+
+echo "Lowercase: $lowercase"
+> Lowercase: hello, world!
+```
+
 ### String Length
 
 To get the length of a string, you can use the `${#string}` syntax:
@@ -128,7 +150,7 @@ echo "Hello, $variable!"
 > Hello, World!
 ```
 
-Do this, which will protect you from unexpected behaviour:
+... do this, which will protect you from unexpected behaviour:
 
 ```bash
 variable="World"
@@ -136,6 +158,41 @@ variable="World"
 # Expand a variable in a string
 echo "Hello, ${variable}!"
 > Hello, World!
+```
+
+### Checking for null or empty strings
+
+To check if a variable is null or empty, you can use the `-z` option:
+
+```bash
+# Check if a variable is null or empty
+if [ -z "$variable" ]; then
+    echo "Variable is null or empty"
+fi
+```
+
+### Checking for non-null or non-empty strings
+
+To check if a variable is not null or empty, you can use the `-n` option:
+
+```bash
+# Check if a variable is not null or empty
+if [ -n "$variable" ]; then
+    echo "Variable is not null or empty"
+fi
+```
+
+### Default values
+
+To set a default value for a variable if it is null or empty, you can use the `${variable:-default}` syntax:
+
+```bash
+# Set a default value for a variable if it is null or empty
+input="a"
+default="b"
+result=${input:-$default}
+
+echo "Result: $result"
 ```
 
 ### Read into a string variable from a file
@@ -174,6 +231,10 @@ echo "Current date: $current_date"
 
 port_info=$(nmap -p 1-100 hostname.com)
 echo "Port Information: $port_info"
+
+> Port Information: Starting Nmap 7.80 ( https://nmap.org ) at 2024-05-11 21:01 BST
+Stats: 0:00:00 elapsed; 0 hosts completed (0 up), 1 undergoing Ping Scan
+...
 ```
 
 ## Command History
@@ -396,42 +457,6 @@ args=$@
 echo "Arguments: $args"
 ```
 
-### Checking for null or empty strings
-
-To check if a variable is null or empty, you can use the `-z` option:
-
-```bash
-# Check if a variable is null or empty
-if [ -z "$variable" ]; then
-    echo "Variable is null or empty"
-fi
-```
-
-### Checking for non-null or non-empty strings
-
-To check if a variable is not null or empty, you can use the `-n` option:
-
-```bash
-# Check if a variable is not null or empty
-if [ -n "$variable" ]; then
-    echo "Variable is not null or empty"
-fi
-```
-
-### Default values
-
-To set a default value for a variable if it is null or empty, you can use the `${variable:-default}` syntax:
-
-```bash
-# Set a default value for a variable if it is null or empty
-input="a"
-default="b"
-result=${input:-$default}
-
-echo "Result: $result"
-```
-
-
 ### Verbose Script Output
 
 To output verbose information from a script, you can use the `set -x` command at the start of the script:
@@ -527,4 +552,3 @@ dig hostname.com CNAME
 
 Thanks to friend and colleague Alastair for showing me many of these commands!
 {:.text-box}
-
