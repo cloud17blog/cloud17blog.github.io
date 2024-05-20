@@ -60,24 +60,68 @@ git clone git@github.com:cloud17blog/cloud17blog.github.io.git
 
 ### 3. Install Jekyll
 
-I then installed Jekyll on my local machine (Linux Ubuntu 2022 on WSL), mainly following the instructions at <https://jekyllrb.com/docs/installation/>
+I then installed Jekyll on my local machine (Linux Ubuntu 2022 on WSL). Initially I followed the instructions at <https://jekyllrb.com/docs/installation/>, but subsequent attempts to install it this way failed with dependency errors. 
 
-1. Install Ruby and RubyGems
+I found the most reliable method was to install Ruby via a Ruby version manager (RVM or rbenv) and then to install Jekyll via RubyGems (which is used to build the site pages and run a local web server to test them with).
 
-Jekyll requires Ruby and RubyGems to be installed on your machine as these are used to build the site pages and run a local web server to test them with. I installed these using apt-get:
+#### 1. Install Ruby using rbenv
+
+Source: <https://www.digitalocean.com/community/tutorials/how-to-install-ruby-on-rails-with-rbenv-on-ubuntu-22-04>
+
+Update packages and install dependencies:
 
 ```bash
-apt-get install ruby-devapt
-install ruby-rubygems
-
-# Check installation
-gem --version 
-3.3.5
+sudo apt update
+sudo apt install libssl-dev libreadline-dev zlib1g-dev autoconf bison build-essential libyaml-dev libreadline-dev libncurses5-dev libffi-dev libgdbm-dev
 ```
 
-2. Install Jekyll and Bundler
+Download and install `rbenv`:
 
 ```bash
+curl -fsSL https://github.com/rbenv/rbenv-installer/raw/HEAD/bin/rbenv-installer | bash
+```
+
+Add rbenv to the PATH and initialise it:
+
+```bash
+echo 'export PATH="$HOME/.rbenv/bin:$PATH"' >> ~/.bashrc
+echo 'eval "$(rbenv init -)"' >> ~/.bashrc
+source ~/.bashrc
+```
+
+Check the installation:
+
+```bash
+type rbenv
+```
+
+Install nodejs:
+
+```bash
+curl -sL https://deb.nodesource.com/setup_18.x -o nodesource_setup.sh
+cat nodesource_setup.sh
+sudo bash nodesource_setup.sh
+sudo apt install nodejs
+node -v
+```
+
+Find what versions of Ruby are available, install the latest version (3.3.1 at time of writing), and make it the default version:
+
+```bash
+rbenv install -l
+rbenv install 3.3.1
+rbenv global 3.3.1
+ruby -v
+gem -v
+```
+
+#### 2. Install Jekyll and Bundler
+
+```bash
+# Install development tools:
+sudo apt install build-essential
+
+# Install Jekyll and Bundler as Ruby Gems:
 gem install jekyll bundler
 
 # Check installation
@@ -85,7 +129,9 @@ jekyll --version
 jekyll 4.3.3
 ```
 
-3. Once I'd got this done correctly, I created a new Jekyll site in the repository directory, using ```--force``` option to ignore existing files:
+#### 3. Create Jekyll Site
+
+Once I'd got this done correctly, I created a new Jekyll site in the repository directory, using ```--force``` option to ignore existing files:
 
 ```bash
 cd cloud17blog.github.io
