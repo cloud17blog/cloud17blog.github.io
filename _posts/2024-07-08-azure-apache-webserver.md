@@ -14,7 +14,7 @@ categories: blog hints-and-tips
 - [Step 2: Create DNS Record](#step-2-create-dns-record)
 - [Step 3: Install Apache](#step-3-install-apache)
 - [Step 4: Create a Virtual Host and Deploy a Website](#step-4-create-a-virtual-host-and-deploy-a-website)
-- [Create a LetsEncrypt SSL Certificate](#create-a-letsencrypt-ssl-certificate)
+- [Step 5: Create a LetsEncrypt SSL Certificate](#step-5-create-a-letsencrypt-ssl-certificate)
 
 ## Introduction
 
@@ -109,9 +109,9 @@ Sometimes when you are working with Azure, you need to quickly set up a web serv
 
 1. Check that the website is accessible by navigating to http://www1.example.com in a web browser. You should see the simple HTML page you created above.
 
-## Create a LetsEncrypt SSL Certificate
+## Step 5: Create a LetsEncrypt SSL Certificate
 
-1. Step 5: Install Certbot:
+1. Install Certbot:
 
     ```bash
     sudo apt install certbot python3-certbot-apache
