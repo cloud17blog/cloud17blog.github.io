@@ -25,7 +25,7 @@ categories: blog hints-and-tips
 
 ## Introduction
 
-Following on from my [previous post](https://cloud17blog.github.io/blog/hints-and-tips/2024/04/15/bash-hints-and-tips.html) on Bash hints and tips, here are some more useful commands for file handling in Bash, including listing files, viewing file contents, finding files, searching for text in files, and more.
+Following on from my [previous post](../../../../hints-and-tips/2024/04/15/bash-hints-and-tips.html) on Bash hints and tips, here are some more useful commands for file handling in Bash, including listing files, viewing file contents, finding files, searching for text in files, and more.
 
 ## File Handling
 

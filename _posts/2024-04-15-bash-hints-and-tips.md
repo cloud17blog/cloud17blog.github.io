@@ -104,11 +104,17 @@ string="Hello, World!"
 # Convert a string to uppercase
 uppercase=${string^^}
 
+# Alternative method using `trim` function:
+uppercase=$(echo $string | tr '[:lower:]' '[:upper:]')
+
 echo "Uppercase: $uppercase"
 > Uppercase: HELLO, WORLD!
 
 # Convert a string to lowercase
 lowercase=${string,,}
+
+# Alternative method using `trim` function:
+lowercase=$(echo $string | tr '[:upper:]' '[:lower:]')
 
 echo "Lowercase: $lowercase"
 > Lowercase: hello, world!
@@ -552,3 +558,6 @@ dig hostname.com CNAME
 
 Thanks to friend and colleague Alastair for showing me many of these commands!
 {:.text-box}
+
+
+Run in background using & operator - see chatGPT "is there an option to run "az aks start" asynchronously?"
